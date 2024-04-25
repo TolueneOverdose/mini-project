@@ -1,0 +1,46 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/Guess the country/node_modules
+/Guess the country/.pnp
+/Guess the country.pnp.js
+
+# testing
+/Guess the country/coverage
+
+# production
+/Guess the country/build
+
+# misc
+/Guess the country/.DS_Store
+/Guess the country/.env.local
+/Guess the country/.env.development.local
+/Guess the country/.env.test.local
+/Guess the country/.env.production.local
+
+/Guess the country/npm-debug.log*
+/Guess the country/yarn-debug.log*
+/Guess the country/yarn-error.log*
+
+# dependencies
+/login/node_modules
+/login/.pnp
+/login/.pnp.js
+
+# testing
+/login/coverage
+
+# production
+/login/build
+
+# misc
+/login/.DS_Store
+/login/.env.local
+/login/.env.development.local
+/login/.env.test.local
+/login/.env.production.local
+
+/login/npm-debug.log*
+/login/yarn-debug.log*
+/login/yarn-error.log*
+
