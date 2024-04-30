@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css"
+    type="text/css"
+  />
+  <link rel="styles" href="styles.css" />
+  <title>Mapify: Sandbox</title>
+  <style>
+    h1 { 
+    text-align:center; 
+    font-size:50px; 
+    text-transform:uppercase;
+    color:#ffffff; 
+    letter-spacing:1px;
+    font-family:"Playfair Display", serif;
+    font-weight:400;
+    margin: 0px;
+  
+    }
+  
+      h2 { 
+          color: white;
+           font-family: 'Open Sans', sans-serif;
+            font-size: 30px; 
+            font-weight: 300; 
+            line-height: 32px;
+            text-align: center; 
+          }
+      body {
+          background-image: url('media/background.jpg');
+      }
+      #main{
+          display:flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+      }
+      #map {
+          height: 48rem;
+          width: 70rem;
+      }
+  
+  /* General button style */
+  .btn {
+    border: none;
+    font-family: 'Lato';
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    padding: 25px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  
+  .btn:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  
+  /* Pseudo elements for icons */
+  .btn:before {
+    font-family: 'FontAwesome';
+    speak-as: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  
+  .btn-sep:before {
+    background: rgba(0,0,0,0.15);
+  }
+  
+  /* Button 1 */
+  .btn-1 {
+    background: #3498db;
+    color: #fff;
+  }
+  
+  .btn-1:hover {
+    background: #2980b9;
+  }
+  
+  .btn-1:active {
+    background: #2980b9;
+    top: 2px;
+  }
+  
+  .btn-1:before {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    line-height: 3;
+    font-size: 140%;
+    width: 60px;
+  }
+  
+  
+
+  .sidenav {
+    height: 100%; 
+    width: 0; 
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
+    left: 0;
+    background-color: #111; 
+    overflow-x: hidden;  
+    padding-top: 60px;
+    transition: 0.5s; 
+  }
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  #main {
+    transition: margin-left .5s;
+    padding: 20px;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  @media screen and (max-width:1500px){
+    h1{font-size: larger;}
+  }
+  </style>
+  <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="mySidenav" class="sidenav" style="display:inline;">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="../landing-page/index.html">Home</a>
+        <a href="#">About us</a>
+        <a href="http://localhost:3000/">Log Out</a>
+        
+      </div>
+      <span style="display:flex;text-align:center;width:100%;padding:0; margin:0px; background-color: black;">
+        <div class="left1" style="flex:1;max-width:10%"><button onclick="openNav()" style="display:inline;margin-left:0px;background-color: black;" class="btn btn-1 btn-sep icon-info">Menu</button></div>
+        <h1 style="width:80%;padding-top:0.1%;font-size: 50px;">Welcome to Mapify Sandbox</h1>
+        <div class="right1" style="flex:1;max-width:10%;"></div>
+      </span>
+    <div id="main" style="padding:0;">    
+    <div id="parent">
+        <div id="header">
+            <h2 style="padding:0;margin:0.8%">Have fun playing around this map or Try out planning your next trip</h2>
+        </div>
+        <div id='map' style="border:solid 15px rgb(255, 64, 31);border-radius: 10px; margin:1%"></div>
+    </div>
+      </div>
+</body>
+</html>

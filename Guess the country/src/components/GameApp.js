@@ -44,9 +44,9 @@ export default function GameApp() {
     backgroundColor:'rgb(10,15,10)',
     backgroundColor: 'rgba(0, 0, 0, 0.4)',
 
-    WebkitBackdropFilter: 'blur(5px)',
+    // WebkitBackdropFilter: 'blur(5px)',
   
-    backdropFilter: 'blur(5px)',
+    // backdropFilter: 'blur(1px)',
 
 
   }
@@ -85,6 +85,7 @@ export default function GameApp() {
               </button>
             </>
           ) : (
+            // <div style={{}}>
             <div style={ssp}>
               <figure className="locationBox">
                 <h1>Location:</h1>

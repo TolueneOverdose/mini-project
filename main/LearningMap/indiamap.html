@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>Mapify Learn</title>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+</head>
+<body>
+  <main id="main">
+    <div align="center" >
+       <div id="visualization"  style="border:solid 5px red; border-radius:5px;"></div>
+       </div>
+
+    <script>
+      google.load('visualization','1',{'packages':['geochart']});
+      google.setOnLoadCallback(drawVisualization);
+      
+      function drawVisualization(){
+        var data=google.visualization.arrayToDataTable([
+          ['State Code', 'State', 'AQI PM2.5'],     
+          ['IN-UP','Uttar Pradesh', 1330],
+          ['IN-MH','Maharashtra', 920],
+          ['IN-BR','Bihar', 510],
+          ['IN-WB','West Bengal', 620],
+          ['IN-MP','Madhya Pradesh', 700],
+          ['IN-TN','Tamil Nadu', 930],
+          ['IN-RJ','Rajasthan', 1030],
+          ['IN-KA','Karnataka', 1290],
+          ['IN-GJ','Gujarat', 1304],
+          ['IN-AP','Andhra Pradesh', 320],
+          ['IN-OR','Orissa', 133],
+          ['IN-TG','Telangana', 233],
+          ['IN-KL','Kerala', 311],
+          ['IN-JH','Jharkhand', 290],
+          ['IN-AS','Assam', 280],
+          ['IN-PB','Punjab', 300],
+          ['IN-CT','Chhattisgarh', 330],
+          ['IN-HR','Haryana', 300],
+          ['IN-JK','Jammu and Kashmir', 200],
+          ['IN-UT','Uttarakhand', 208],
+          ['IN-HP','Himachal Pradesh', 107],
+          ['IN-TR','Tripura', 301],
+          ['IN-ML','Meghalaya', 210],
+          ['IN-MN','Manipur', 220],
+          ['IN-NL','Nagaland', 201],
+          ['IN-GA','Goa', 1121],
+          ['IN-AR', 'Arunachal Pradesh', 343],
+          ['IN-MZ','Mizoram', 423],
+          ['IN-SK','Sikkim', 724],
+          ['IN-DL','Delhi', 231],
+          ['IN-PY','Puducherry', 233],
+          ['IN-CH','Chandigarh', 230],
+          ['IN-AN','Andaman and Nicobar Islands',230],
+          ['IN-DN','Dadra and Nagar Haveli', 230],
+          ['IN-DD','Daman and Diu', 229],
+          ['IN-LD','Lakshadweep', 231],
+          ]);
+          var opts={
+            region:'IN',
+            domain:'IN',
+            displayMode:'regions',
+            colorAxis:{colors:['#008000','#FFFF00','#0000FF']},
+            resolution:'provinces',
+            backgroundColor:'#81d4fa',
+            defaultColor:'#f5f5f5',
+            width:940,
+            height:680,
+          };
+
+          var geochart= new google.visualization.GeoChart(
+            document.getElementById('visualization')
+          );
+
+          geochart.draw(data,opts);
+      };
+    
+    </script>
+  </main>
+    
+</body>
+</html>
